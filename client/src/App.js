@@ -19,7 +19,6 @@ class App extends Component {
   componentDidMount() {
     axios.get("http://localhost:5000/api/players")
     .then(res => {
-      console.log(res.data);
       this.setState({players: res.data});
     })
     .catch(err => console.log("Error:", err))
@@ -29,7 +28,7 @@ class App extends Component {
     if (this.state.players === null) {return <div>Loading</div>}
     else {
     return(
-      <div className="players">
+      <div className="app">
         <h1>{this.state.title}</h1>
         <PlayersComponent players={this.state.players}/>
       </div>
