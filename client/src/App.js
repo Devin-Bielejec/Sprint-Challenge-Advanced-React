@@ -29,7 +29,7 @@ class App extends Component {
     if (this.state.players === null) {return <div>Loading</div>}
     else {
     return(
-      <div>
+      <div className="players">
         <h1>{this.state.title}</h1>
         <PlayersComponent players={this.state.players}/>
       </div>
