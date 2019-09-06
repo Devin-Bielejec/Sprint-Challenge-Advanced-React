@@ -4,12 +4,15 @@ import './App.css';
 import axios from "axios";
 import { runInThisContext } from 'vm';
 
+//Component Imports
+import { PlayersComponent } from "./components/PlayersComponent";
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
       title: "Hi",
-      players: [{name: "Devin", country: "USA"}]
+      players: null
     }
   }
 
@@ -23,13 +26,15 @@ class App extends Component {
   }
 
   render() {
+    if (this.state.players === null) {return <div>Loading</div>}
+    else {
     return(
       <div>
         <h1>{this.state.title}</h1>
-        <h2>{this.state.players[0].name}</h2>
+        <PlayersComponent players={this.state.players}/>
       </div>
     )
-    
+    }
   } 
 }
 
